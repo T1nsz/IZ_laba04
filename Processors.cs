@@ -90,11 +90,11 @@ namespace IZ_laba04
 
     class DataProcessor
     {
-        StreamReader sr = new StreamReader("laba03.txt");
-        MainWindow form;
-        public List<string> temp = new List<string>();
-        int i = 0;
-        List<string> temp_answers = new List<string>();
+        StreamReader sr = new StreamReader("laba03.txt"); 
+        MainWindow form; //Передача формы 
+        public List<string> temp = new List<string>(); //Хранилище деревьев
+        int i = 0; // Текущий номер строки
+        List<string> temp_answers = new List<string>(); // Варианты ответа текущего вопроса
 
         public void Input()
         {
@@ -113,19 +113,19 @@ namespace IZ_laba04
         
         public void Quiz()
         {
-            while (!temp[0].Split('\n')[i].Contains("ТО"))
+            while (!temp[0].Split('\n')[i].Contains("ТО")) // Условие выхода ((ГОВНО))
             {
-                string[] temp_quiz = temp[0].Split('\n');
+                string[] temp_quiz = temp[0].Split('\n'); // Сплит первого набора в списке
                 
                 foreach(string lol in temp)
                 {
-                    string temporary = lol.Split('\n')[i].Split('=')[1];
+                    string temporary = lol.Split('\n')[i].Split('=')[1]; // Добавление всех вариантов ответа на текущий вопрос
                     if (!temp_answers.Contains(temporary))
                         temp_answers.Add(lol.Split('\n')[i].Split('=')[1]);
                 }
 
-                form.Question_label.Content = temp[0].Split('"')[1];
-                i += 2;
+                form.Question_label.Content = temp[0].Split('"')[1]; // Как достать вопрос из строки
+                i += 2; // Итератор 
             }
         }
     }
