@@ -33,7 +33,8 @@ namespace IZ_laba04
             Button_begin.Visibility = Visibility.Collapsed;
             Button_close.Visibility = Visibility.Collapsed;
 
-            DataProcessor processor = new DataProcessor("C://Users//artem//source//repos//IZ_laba04//laba03.txt");
+            DataProcessor processor = new DataProcessor();
+            processor.Input();
         }
 
         private void Button_Close_Click(object sender, RoutedEventArgs e)
