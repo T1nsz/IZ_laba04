@@ -25,5 +25,17 @@
                 <SolidColorBrush Color="#FF92CEFF" Opacity="0.55"/>
             </Button.Background>
         </Button>
+        <Label x:Name="Question_label" Content="Херня" HorizontalAlignment="Left" Margin="608,225,0,0" VerticalAlignment="Top" FontSize="25" Foreground="Red"/>
+        <ListBox x:Name="Answer_box" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Margin="588,394,0,0"/>
+        <Button x:Name="___Без_имени_" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="341" Margin="953,509,0,0" RenderTransformOrigin="0.5,0.5" Height="208" Foreground="Black" Background="#FFF409FF">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-4.71"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
     </Grid>
 </Window>

@@ -32,6 +32,7 @@ namespace IZ_laba04
             titleName.Visibility = Visibility.Collapsed;
             Button_begin.Visibility = Visibility.Collapsed;
             Button_close.Visibility = Visibility.Collapsed;
+            Question_label.Content = "";
 
             DataProcessor processor = new DataProcessor();
             processor.Input();

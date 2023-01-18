@@ -91,12 +91,14 @@ namespace IZ_laba04
     class DataProcessor
     {
         StreamReader sr = new StreamReader("laba03.txt");
-
-        public string[] data;
+        MainWindow form;
         public List<string> temp = new List<string>();
+        int i = 0;
+        List<string> temp_answers = new List<string>();
 
         public void Input()
         {
+            string[] data;
             string temp = "";
             string line;
 
@@ -104,8 +106,27 @@ namespace IZ_laba04
                 temp += line;
 
             data = temp.Split(';');
+
+            this.temp = data.ToList();
             return;
         }
         
+        public void Quiz()
+        {
+            while (!temp[0].Split('\n')[i].Contains("ТО"))
+            {
+                string[] temp_quiz = temp[0].Split('\n');
+                
+                foreach(string lol in temp)
+                {
+                    string temporary = lol.Split('\n')[i].Split('=')[1];
+                    if (!temp_answers.Contains(temporary))
+                        temp_answers.Add(lol.Split('\n')[i].Split('=')[1]);
+                }
+
+                form.Question_label.Content = temp[0].Split('"')[1];
+                i += 2;
+            }
+        }
     }
 }
