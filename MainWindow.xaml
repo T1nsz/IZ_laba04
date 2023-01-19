@@ -10,7 +10,11 @@
         <Grid.Background>
             <ImageBrush ImageSource="title.jpg"/>
         </Grid.Background>
-        <ListBox x:Name="Answer_box" HorizontalAlignment="Center" Height="566" VerticalAlignment="Top" Width="358" Margin="86,142,880,0" Background="{x:Null}" FontFamily="Times New Roman" FontSize="36" BorderBrush="{x:Null}" FontWeight="Bold"/>
+        <ListBox x:Name="Answer_box" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Auto" HorizontalAlignment="Center" Height="566" VerticalAlignment="Top" Width="464" Margin="40,142,820,0" FontFamily="Times New Roman" FontSize="36" BorderBrush="{x:Null}" FontWeight="Bold">
+            <ListBox.Background>
+                <SolidColorBrush Color="#FF92CEFF" Opacity="0.3"/>
+            </ListBox.Background>
+        </ListBox>
         <Label x:Name="titleName" Content="Выбор персонажа &#xA;           WOW" HorizontalAlignment="Left" Margin="60,60,0,0" VerticalAlignment="Top" FontSize="48" FontFamily="Arial Black" Foreground="#FF5149FF" FontWeight="Bold">
             <Label.Effect>
                 <DropShadowEffect BlurRadius="7" Opacity="0.7"/>
@@ -26,12 +30,20 @@
                 <SolidColorBrush Color="#FF92CEFF" Opacity="0.55"/>
             </Button.Background>
         </Button>
-        <Label x:Name="Question_label" Content="Да" HorizontalAlignment="Center" Margin="0,142,0,0" VerticalAlignment="Top" FontSize="36" Foreground="Black" FontFamily="Times New Roman" FontWeight="Bold"/>
-        <Button x:Name="test_button" Content="Ок" HorizontalAlignment="Left" VerticalAlignment="Top" Width="104" Margin="550,598,0,0" RenderTransformOrigin="0.5,0.5" Height="64" Foreground="Black" Click="test_button_Click" FontFamily="Times New Roman" FontSize="36" FontWeight="Bold">
+        <Label x:Name="Question_label" Content="Да" HorizontalAlignment="Center" Margin="0,76,0,0" VerticalAlignment="Top" FontSize="36" Foreground="Black" FontFamily="Times New Roman" FontWeight="Bold">
+            <Label.Background>
+                <SolidColorBrush Color="#FF92CEFF" Opacity="0.55"/>
+            </Label.Background>
+        </Label>
+        <Button x:Name="test_button" Content="Ок" HorizontalAlignment="Left" VerticalAlignment="Top" Width="104" Margin="604,472,0,0" RenderTransformOrigin="0.5,0.5" Height="64" Foreground="Black" Click="test_button_Click" FontFamily="Times New Roman" FontSize="36" FontWeight="Bold">
             <Button.Background>
-                <SolidColorBrush Color="#FF92CEFF" Opacity="0.535"/>
+                <SolidColorBrush Color="#FF92CEFF" Opacity="0.55"/>
             </Button.Background>
         </Button>
-        <Button x:Name="button_restart" Content="Button" HorizontalAlignment="Left" Margin="1144,94,0,0" VerticalAlignment="Top" Width="74" Click="button_restart_Click"/>
+        <Button x:Name="button_restart" Content="Рестарт" HorizontalAlignment="Left" Margin="1140,76,0,0" VerticalAlignment="Top" Width="152" Click="button_restart_Click" FontFamily="Times New Roman" FontSize="36" FontWeight="Bold" Height="56">
+            <Button.Background>
+                <SolidColorBrush Color="#FF92CEFF" Opacity="0.55"/>
+            </Button.Background>
+        </Button>
     </Grid>
 </Window>

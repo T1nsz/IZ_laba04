@@ -16,9 +16,6 @@ using System.Windows.Shapes;
 
 namespace IZ_laba04
 {
-    /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         DataProcessor proc;
@@ -28,6 +25,9 @@ namespace IZ_laba04
             InitializeComponent();
             Question_label.Content = "";
             test_button.Visibility = Visibility.Collapsed;
+            Question_label.Visibility = Visibility.Collapsed;
+            Answer_box.Visibility = Visibility.Collapsed;
+            button_restart.Visibility = Visibility.Collapsed; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;
         }
 
         private void Button_Begin_Click(object sender, RoutedEventArgs e)
@@ -36,6 +36,9 @@ namespace IZ_laba04
             Button_begin.Visibility = Visibility.Collapsed;
             Button_close.Visibility = Visibility.Collapsed;
             test_button.Visibility = Visibility.Visible;
+            Answer_box.Visibility = Visibility.Visible;
+            button_restart.Visibility = Visibility.Visible;
+            Question_label.Visibility = Visibility.Visible;
 
             proc = new DataProcessor(this);
 
@@ -43,9 +46,6 @@ namespace IZ_laba04
             proc.Quiz(null);
 
             Answer_box.ItemsSource = proc.temp_answers;
-            //DataProcessor processor = new DataProcessor(MainWindow);
-            //processor.Input();
-            //processor.Quiz("0");
         }
 
         private void Button_Close_Click(object sender, RoutedEventArgs e)
@@ -75,6 +75,4 @@ namespace IZ_laba04
             Answer_box.ItemsSource = proc.temp_answers;
         }
     }
-
-
 }
