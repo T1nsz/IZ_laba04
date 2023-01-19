@@ -21,6 +21,7 @@ namespace IZ_laba04
     /// </summary>
     public partial class MainWindow : Window
     {
+        DataProcessor form2;
 
         public MainWindow()
         {
@@ -33,14 +34,24 @@ namespace IZ_laba04
             Button_begin.Visibility = Visibility.Collapsed;
             Button_close.Visibility = Visibility.Collapsed;
 
-            DataProcessor processor = new DataProcessor();
-            processor.Input();
-           // processor.Quiz("0");
+            form2 = new DataProcessor(this);
+
+            form2.Input();
+            form2.Quiz("8");
+
+            //DataProcessor processor = new DataProcessor(MainWindow);
+            //processor.Input();
+            //processor.Quiz("0");
         }
 
         private void Button_Close_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
+        }
+
+        private void test_button_Click(object sender, RoutedEventArgs e)
+        {
+            Question_label.Content = "dadada";
         }
     }
 

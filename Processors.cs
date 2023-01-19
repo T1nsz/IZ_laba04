@@ -90,11 +90,20 @@ namespace IZ_laba04
 
     class DataProcessor
     {
-        StreamReader sr = new StreamReader("laba03.txt"); 
-        MainWindow form1 = new MainWindow(); //Передача формы 
+        MainWindow form1;
+        public DataProcessor(MainWindow Form1)
+        {
+            form1 = Form1;
+        }
+
+
+        StreamReader sr = new StreamReader("laba03.txt");
+        //MainWindow form1 = new MainWindow(); //Передача формы 
         public List<string> temp = new List<string>(); //Хранилище деревьев
         int i = 0; // Текущий номер строки
         List<string> temp_answers = new List<string>(); // Варианты ответа текущего вопроса
+
+
 
         public void Input()
         {
@@ -103,7 +112,7 @@ namespace IZ_laba04
             string line;
 
             while ((line = sr.ReadLine()) != null)
-                temp += "\n" + line ;
+                temp += "\n" + line;
 
             data = temp.Split(';');
 
@@ -112,14 +121,14 @@ namespace IZ_laba04
             this.temp = data.ToList();
             return;
         }
-        
+
         public string Quiz(string choise)
         {
             if (temp[0].Split('\n').Length > i) // Условие выхода ((ГОВНО))
             {
                 string[] temp_quiz = temp[0].Split('\n'); // Сплит первого набора в списке
-                
-                foreach(string lol in temp)
+
+                foreach (string lol in temp)
                 {
                     string temp1 = lol.Split('\n')[i];
                     if (temp1 == "")
@@ -133,7 +142,7 @@ namespace IZ_laba04
                 i += 2; // Итератор 
                 return null;
             }
-            else return(temp[0].Split('\n')[i]);
+            else return (temp[0].Split('\n')[i]);
         }
     }
 }
