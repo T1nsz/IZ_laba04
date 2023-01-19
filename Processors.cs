@@ -91,7 +91,7 @@ namespace IZ_laba04
     class DataProcessor
     {
         StreamReader sr = new StreamReader("laba03.txt"); 
-        MainWindow form; //Передача формы 
+        MainWindow form1 = new MainWindow(); //Передача формы 
         public List<string> temp = new List<string>(); //Хранилище деревьев
         int i = 0; // Текущий номер строки
         List<string> temp_answers = new List<string>(); // Варианты ответа текущего вопроса
@@ -103,30 +103,37 @@ namespace IZ_laba04
             string line;
 
             while ((line = sr.ReadLine()) != null)
-                temp += line;
+                temp += "\n" + line ;
 
             data = temp.Split(';');
+
+            form1.Question_label.Content = "loddddl";
 
             this.temp = data.ToList();
             return;
         }
         
-        public void Quiz()
+        public string Quiz(string choise)
         {
-            while (!temp[0].Split('\n')[i].Contains("ТО")) // Условие выхода ((ГОВНО))
+            if (temp[0].Split('\n').Length > i) // Условие выхода ((ГОВНО))
             {
                 string[] temp_quiz = temp[0].Split('\n'); // Сплит первого набора в списке
                 
                 foreach(string lol in temp)
                 {
-                    string temporary = lol.Split('\n')[i].Split('=')[1]; // Добавление всех вариантов ответа на текущий вопрос
+                    string temp1 = lol.Split('\n')[i];
+                    if (temp1 == "")
+                        continue;
+                    string temporary = temp1.Split('=')[1]; // Добавление всех вариантов ответа на текущий вопрос
                     if (!temp_answers.Contains(temporary))
                         temp_answers.Add(lol.Split('\n')[i].Split('=')[1]);
                 }
-
-                form.Question_label.Content = temp[0].Split('"')[1]; // Как достать вопрос из строки
+                string[] tempp = temp[0].Split('"');
+                form1.Question_label.Content = temp[0].Split('"')[1]; // Как достать вопрос из строки
                 i += 2; // Итератор 
+                return null;
             }
+            else return(temp[0].Split('\n')[i]);
         }
     }
 }

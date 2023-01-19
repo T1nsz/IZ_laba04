@@ -32,10 +32,10 @@ namespace IZ_laba04
             titleName.Visibility = Visibility.Collapsed;
             Button_begin.Visibility = Visibility.Collapsed;
             Button_close.Visibility = Visibility.Collapsed;
-            Question_label.Content = "";
 
             DataProcessor processor = new DataProcessor();
             processor.Input();
+           // processor.Quiz("0");
         }
 
         private void Button_Close_Click(object sender, RoutedEventArgs e)
