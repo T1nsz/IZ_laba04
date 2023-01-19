@@ -32,8 +32,6 @@ namespace IZ_laba04
 
             data = temp.Split(';');
 
-            form1.Question_label.Content = "loddddl";
-
             this.temp = data.ToList();
             this.temp.RemoveAt(this.temp.Count - 1);
             return;
