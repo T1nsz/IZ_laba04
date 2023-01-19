@@ -158,7 +158,7 @@ namespace IZ_laba04
                    temp_answers.Add(lol.Split('\n')[i+1].Split('=')[1]);
             }
             string[] tempp = temp[0].Split('"');
-            form1.Question_label.Content = temp[0].Split('\n')[i + 1].Split('=')[0]; // Как достать вопрос из строки
+                form1.Question_label.Content = temp[0].Split('\n')[i + 1].Split('=')[0].Split('"')[1];
             return; 
         }
     }

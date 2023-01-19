@@ -26,6 +26,8 @@ namespace IZ_laba04
         public MainWindow()
         {
             InitializeComponent();
+            Question_label.Content = "";
+            test_button.Visibility = Visibility.Collapsed;
         }
 
         private void Button_Begin_Click(object sender, RoutedEventArgs e)
@@ -33,6 +35,7 @@ namespace IZ_laba04
             titleName.Visibility = Visibility.Collapsed;
             Button_begin.Visibility = Visibility.Collapsed;
             Button_close.Visibility = Visibility.Collapsed;
+            test_button.Visibility = Visibility.Visible;
 
             proc = new DataProcessor(this);
 

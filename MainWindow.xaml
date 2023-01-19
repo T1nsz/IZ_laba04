@@ -25,17 +25,13 @@
                 <SolidColorBrush Color="#FF92CEFF" Opacity="0.55"/>
             </Button.Background>
         </Button>
-        <Label x:Name="Question_label" Content="Херня" HorizontalAlignment="Left" Margin="608,225,0,0" VerticalAlignment="Top" FontSize="25" Foreground="Red"/>
-        <ListBox x:Name="Answer_box" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Margin="588,394,0,0"/>
-        <Button x:Name="test_button" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="341" Margin="953,509,0,0" RenderTransformOrigin="0.5,0.5" Height="208" Foreground="Black" Background="#FFF409FF" Click="test_button_Click">
-            <Button.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-4.71"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Button.RenderTransform>
+        <Label x:Name="Question_label" Content="Да" HorizontalAlignment="Center" Margin="0,142,0,0" VerticalAlignment="Top" FontSize="36" Foreground="Black" FontFamily="Times New Roman" FontWeight="Bold"/>
+        <ListBox x:Name="Answer_box" HorizontalAlignment="Center" Height="566" VerticalAlignment="Top" Width="358" Margin="86,142,880,0" Background="{x:Null}" FontFamily="Times New Roman" FontSize="36" BorderBrush="{x:Null}" FontWeight="Bold"/>
+        <Button x:Name="test_button" Content="Ок" HorizontalAlignment="Left" VerticalAlignment="Top" Width="104" Margin="550,598,0,0" RenderTransformOrigin="0.5,0.5" Height="64" Foreground="Black" Click="test_button_Click" FontFamily="Times New Roman" FontSize="36" FontWeight="Bold">
+            <Button.Background>
+                <SolidColorBrush Color="#FF92CEFF" Opacity="0.535"/>
+            </Button.Background>
         </Button>
+        <Button x:Name="button_restart" Content="Button" HorizontalAlignment="Left" Margin="1144,94,0,0" VerticalAlignment="Top" Width="74"/>
     </Grid>
 </Window>
