@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace IZ_laba04
 {
@@ -101,9 +102,7 @@ namespace IZ_laba04
         //MainWindow form1 = new MainWindow(); //Передача формы 
         public List<string> temp = new List<string>(); //Хранилище деревьев
         int i = 0; // Текущий номер строки
-        List<string> temp_answers = new List<string>(); // Варианты ответа текущего вопроса
-
-
+        public List<string> temp_answers = new List<string>(); // Варианты ответа текущего вопроса
 
         public void Input()
         {
@@ -123,29 +122,44 @@ namespace IZ_laba04
             return;
         }
 
-        public string Quiz(string choise)
+        public void Quiz(string choise)
         {
+            if (choise != null)
+            {
+                for (int k = 0; k < temp.Count; k++)
+                {
+                    if (temp[k].Split('\n')[i+1].Split('=')[1] != choise)
+                    {
+                        temp.RemoveAt(k);
+                        k--;
+                    }
+                }
+                i += 2; // Итератор 
+            }
+
             temp_answers = new List<string>();
 
-            if (temp[0].Split('\n').Length > i) // Условие выхода ((ГОВНО))
-            {
-                string[] temp_quiz = temp[0].Split('\n'); // Сплит первого набора в списке
+            string[] temp_quiz = temp[0].Split('\n'); // Сплит первого набора в списке
 
-                foreach (string lol in temp)
+            foreach (string lol in temp)
+            {
+                if (lol.Split('\n')[i].Contains("ТО"))
                 {
-                    string temp1 = lol.Split('\n')[i+1];
-                    if (lol == "")
-                        continue;
-                    string temporary = temp1.Split('=')[1]; // Добавление всех вариантов ответа на текущий вопрос
-                    if (!temp_answers.Contains(temporary))
-                        temp_answers.Add(lol.Split('\n')[i+1].Split('=')[1]);
+                    form1.Question_label.Content = lol.Split('\n')[i];
+                    form1.Answer_box.Visibility = Visibility.Collapsed;
+                    form1.test_button.Visibility = Visibility.Collapsed;
+                    return;
                 }
-                string[] tempp = temp[0].Split('"');
-                form1.Question_label.Content = temp[0].Split('"')[1]; // Как достать вопрос из строки
-                i += 2; // Итератор 
-                return null;
+                string temp1 = lol.Split('\n')[i+1];
+                if (lol == "")
+                    continue;
+                string temporary = temp1.Split('=')[1]; // Добавление всех вариантов ответа на текущий вопрос
+                if (!temp_answers.Contains(temporary))
+                   temp_answers.Add(lol.Split('\n')[i+1].Split('=')[1]);
             }
-            else return (temp[0].Split('\n')[i]);
+            string[] tempp = temp[0].Split('"');
+            form1.Question_label.Content = temp[0].Split('\n')[i + 1].Split('=')[0]; // Как достать вопрос из строки
+            return; 
         }
     }
 }
