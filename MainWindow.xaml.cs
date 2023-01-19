@@ -61,6 +61,19 @@ namespace IZ_laba04
                 Answer_box.ItemsSource = proc.temp_answers;
             }
         }
+
+        private void button_restart_Click(object sender, RoutedEventArgs e)
+        {
+            Answer_box.Visibility = Visibility.Visible;
+            test_button.Visibility = Visibility.Visible;
+
+            proc = new DataProcessor(this);
+
+            proc.Input();
+            proc.Quiz(null);
+
+            Answer_box.ItemsSource = proc.temp_answers;
+        }
     }
 
 
