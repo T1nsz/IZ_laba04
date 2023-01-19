@@ -143,7 +143,7 @@ namespace IZ_laba04
 
             foreach (string lol in temp)
             {
-                if (lol.Split('\n')[i].Contains("ТО"))
+                if (lol.Split('\n')[i].Contains("ТО "))
                 {
                     form1.Question_label.Content = lol.Split('\n')[i];
                     form1.Answer_box.Visibility = Visibility.Collapsed;
