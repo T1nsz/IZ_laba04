@@ -119,23 +119,26 @@ namespace IZ_laba04
             form1.Question_label.Content = "loddddl";
 
             this.temp = data.ToList();
+            this.temp.RemoveAt(this.temp.Count - 1);
             return;
         }
 
         public string Quiz(string choise)
         {
+            temp_answers = new List<string>();
+
             if (temp[0].Split('\n').Length > i) // Условие выхода ((ГОВНО))
             {
                 string[] temp_quiz = temp[0].Split('\n'); // Сплит первого набора в списке
 
                 foreach (string lol in temp)
                 {
-                    string temp1 = lol.Split('\n')[i];
-                    if (temp1 == "")
+                    string temp1 = lol.Split('\n')[i+1];
+                    if (lol == "")
                         continue;
                     string temporary = temp1.Split('=')[1]; // Добавление всех вариантов ответа на текущий вопрос
                     if (!temp_answers.Contains(temporary))
-                        temp_answers.Add(lol.Split('\n')[i].Split('=')[1]);
+                        temp_answers.Add(lol.Split('\n')[i+1].Split('=')[1]);
                 }
                 string[] tempp = temp[0].Split('"');
                 form1.Question_label.Content = temp[0].Split('"')[1]; // Как достать вопрос из строки
